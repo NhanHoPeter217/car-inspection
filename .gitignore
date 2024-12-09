@@ -1,0 +1,26 @@
+# Dependency folders
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Local development files
+.env
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# VSCode
+.vscode/
+
+# Temporary build files
+*.tsbuildinfo
