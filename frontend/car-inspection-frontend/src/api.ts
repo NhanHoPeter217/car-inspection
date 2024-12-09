@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL; // Adjust the URL as needed
+console.log("BASE_URL", BASE_URL);
 
 export const getCars = async () => {
   try {
