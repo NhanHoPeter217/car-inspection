@@ -34,7 +34,7 @@ router.get("/:car_id", validationMiddleware_1.validateCarId, (req, res) => __awa
     try {
         const { car_id } = req.params;
         const allCriterias = yield Criteria_1.default.findAll();
-        const currentCar = yield Car_1.default.findOne({ where: { id: car_id } });
+        const currentCar = yield Car_1.default.findOne({ where: { id: parseInt(car_id) } });
         const carCriteria = yield Promise.all(allCriterias.map((c) => __awaiter(void 0, void 0, void 0, function* () {
             const [criteria, _] = yield Criteria_Value_1.default.findOrCreate({
                 where: { car_id: parseInt(car_id), criteria_id: c.id },
@@ -51,7 +51,7 @@ router.get("/:car_id", validationMiddleware_1.validateCarId, (req, res) => __awa
         res.json({ carName: currentCar === null || currentCar === void 0 ? void 0 : currentCar.name, criterias: carCriteria });
     }
     catch (error) {
-        res.status(500).json({ error: "Failed to fetch criteria" });
+        res.status(500).json({ error });
     }
 }));
 // PUT /criteriaValue - Update criteria for a specific car
@@ -67,7 +67,7 @@ router.put("/:car_id", validationMiddleware_1.validateCarId, validationMiddlewar
         res.json({ message: "Criteria updated", updatedCriteria });
     }
     catch (error) {
-        res.status(500).json({ error: "Failed to update criteria" });
+        res.status(500).json({ error });
     }
 }));
 exports.default = router;

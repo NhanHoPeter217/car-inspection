@@ -25,7 +25,7 @@ router.get(
         try {
             const { car_id } = req.params;
             const allCriterias = await Criteria.findAll();
-            const currentCar = await Car.findOne({ where: { id: car_id } });
+            const currentCar = await Car.findOne({ where: { id: parseInt(car_id) } });
 
             const carCriteria = await Promise.all(
                 allCriterias.map(async (c) => {
@@ -46,7 +46,7 @@ router.get(
             
             res.json({ carName: currentCar?.name, criterias: carCriteria });
         } catch (error) {
-            res.status(500).json({ error: "Failed to fetch criteria" });
+            res.status(500).json({ error });
         }
     }
 );
@@ -75,7 +75,7 @@ router.put(
 
             res.json({ message: "Criteria updated", updatedCriteria });
         } catch (error) {
-            res.status(500).json({ error: "Failed to update criteria" });
+            res.status(500).json({ error });
         }
     }
 );

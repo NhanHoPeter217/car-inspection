@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://car-inspection.onrender.com"; // Adjust the URL as needed
+const BASE_URL = process.env.REACT_APP_BACKEND_URL; // Adjust the URL as needed
 
 export const getCars = async () => {
   try {
