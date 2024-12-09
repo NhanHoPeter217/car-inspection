@@ -21,6 +21,7 @@ Criteria.init(
     {
         sequelize,
         tableName: "criterias",
+        timestamps: false,
     }
 );
 

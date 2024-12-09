@@ -20,5 +20,6 @@ Criteria.init({
 }, {
     sequelize: db_1.default,
     tableName: "criterias",
+    timestamps: false,
 });
 exports.default = Criteria;

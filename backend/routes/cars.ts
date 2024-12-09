@@ -9,15 +9,30 @@ const router = express.Router();
 // GET /cars - Fetch all cars
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
     try {
+        // Extract query parameters with default values
         const { sortBy = "status", order = "asc" } = req.query;
-        
+
+        // Define allowed columns for sorting
+        const allowedSortByFields = ["id", "name", "status"]; // Add more valid fields as needed
+        const allowedOrderValues = ["asc", "desc"];
+
+        // Validate `sortBy` to ensure it matches one of the allowed fields
+        const validSortBy = allowedSortByFields.includes(sortBy as string)
+            ? (sortBy as string)
+            : "status"; // Default to "status" if invalid
+
+        // Validate `order` to ensure it matches allowed values
+        const validOrder = allowedOrderValues.includes(order as string)
+            ? (order as string)
+            : "asc"; // Default to "asc" if invalid
+
+        // Fetch cars from the database with validated sorting
         const cars = await Car.findAll({
-            order: [[sortBy as string, order as string]],
+            order: [[validSortBy, validOrder]],
         });
 
         res.json(cars);
     } catch (error) {
-        // res.status(500).json({ error: "Failed to fetch cars" });
         next({
             statusCode: 500,
             message: "Failed to fetch cars. Please try again later.",

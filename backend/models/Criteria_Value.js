@@ -51,7 +51,7 @@ Criteria_Value.init({
             }
         }
     },
-    timestamps: false, // Optional, if you don’t want Sequelize to add createdAt/updatedAt fields
+    timestamps: false,
 });
 // Define Associations
 Car_1.default.hasMany(Criteria_Value, { foreignKey: "car_id", as: "criteriaValues" });

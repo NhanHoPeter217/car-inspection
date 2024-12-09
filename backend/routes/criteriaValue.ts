@@ -33,6 +33,7 @@ router.get(
                         where: {car_id: parseInt(car_id), criteria_id: c.id },
                         defaults: { is_good: false, note: "" },
                         hooks: false,
+                        raw: true
                     });
 
                     return {

@@ -25,5 +25,6 @@ Car.init({
 }, {
     sequelize: db_1.default,
     tableName: "cars",
+    timestamps: false,
 });
 exports.default = Car;

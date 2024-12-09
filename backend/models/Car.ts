@@ -27,6 +27,7 @@ Car.init(
     {
         sequelize,
         tableName: "cars",
+        timestamps: false,
     }
 );
 

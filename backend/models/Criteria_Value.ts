@@ -59,7 +59,7 @@ Criteria_Value.init(
                 }
             }
         },
-        timestamps: false, // Optional, if you don’t want Sequelize to add createdAt/updatedAt fields
+        timestamps: false,
     }
 );
 

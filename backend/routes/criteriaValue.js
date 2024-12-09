@@ -40,6 +40,7 @@ router.get("/:car_id", validationMiddleware_1.validateCarId, (req, res) => __awa
                 where: { car_id: parseInt(car_id), criteria_id: c.id },
                 defaults: { is_good: false, note: "" },
                 hooks: false,
+                raw: true
             });
             return {
                 id: c.id,
