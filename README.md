@@ -4,6 +4,8 @@ An application for car inspectors to report and track car inspection results.
 
 [**Live Demo (Deployed Product)**](https://car-inspection-murex.vercel.app/)
 
+[**Entity Relationship Diagram**](https://drive.google.com/file/d/1E8NvXJqxuS_lvmU9ciWljak1C87bXEbF/view?usp=drive_link)
+
 ## User Story
 
 **As a car inspector,**  
